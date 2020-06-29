@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Test</string>
+    <string name="specialty">Специальность</string>
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="age">Возраст</string>
+    <string name="birthday">Дата рождения</string>
+    <string name="toolbar_spec">Специальности</string>
+    <string name="error">Ошибка</string>
+    <string name="empty_value">-</string>
+</resources>
