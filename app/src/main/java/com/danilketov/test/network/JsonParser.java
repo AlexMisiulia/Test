@@ -10,6 +10,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 public class JsonParser {
 
@@ -29,11 +30,13 @@ public class JsonParser {
 
         // Здесь пройти через массив "response"...
 
-        JsonObject jsonObject = GSON.fromJson(jsonString, JsonObject.class);
-        JsonArray specialtyArray = jsonObject.getAsJsonArray("specialty");
-        Type responseCollectionType = new TypeToken<ArrayList<Specialty>>(){}.getType();
-        ArrayList<Specialty> result = GSON.fromJson(specialtyArray, responseCollectionType);
+        ArrayList<Worker> workersInfo = getWorkersInfo(jsonString);
 
-        return result;
+        ArrayList<Specialty> specialties = new ArrayList<Specialty>();
+        for(Worker workerInfo : workersInfo) {
+            specialties.addAll(workerInfo.getSpecialty());
+        }
+
+        return specialties;
     }
 }
